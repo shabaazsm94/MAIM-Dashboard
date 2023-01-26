@@ -1,0 +1,109 @@
+<html>
+  <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  </head>
+  <body>
+      <!-- TABLE for company profile-->
+    <table align="right">
+      <tbody>
+        <tr align="left">
+          <td>
+            <b>Project Name</b>
+            ": XYZ"
+          </td>
+        </tr>
+        <tr align="left">
+          <td>
+            <b>Contractual finish</b>
+            ": XYZ"
+          </td>
+        </tr>
+        <tr align="left">
+          <td>
+            <b>Project Value</b>
+            ": XYZ"
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="text-align: center">
+      <h1><b>MAIM SOFTWARE CONSULTING</b></h1>
+	</div>
+	<div style="text-align: center">
+        <h2>website: https://maimconsulting.com/</h2>
+	</div>
+	</BR>
+
+    <div class="flex" style="display: flex; justify-content: center;">
+            <div id="piechart_3d_1" style="width: 500px; height: 500px;left: auto;"></div>
+            <div id="piechart_3d_2" style="width: 500px; height: 500px;left: auto;"></div>
+    </div>
+    <!-- <div id="barchart_3d_1" style="width: 350px; height: 200px;left: auto; padding-left: 30px; "></div> -->
+    <div id="barchart_3d_1" style="width: 350px; height: 200px;left: auto; "></div>
+
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart","bar"]});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            // Pie Chart 1
+
+            var data_pie_1 = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Actual',     25],
+                ['Plan',      75],
+            ]);
+
+            var option_pie_1 = {
+                title: 'Financial Progress',
+                is3D: true,
+            };
+
+            var chart_pie_1 = new google.visualization.PieChart(document.getElementById('piechart_3d_1'));
+            chart_pie_1.draw(data_pie_1, option_pie_1);
+
+            // Pie Chart 2
+
+            var data_pie_2 = google.visualization.arrayToDataTable([
+                ['Item', 'Love'],
+                ['Cake',     25],
+                ['Dougnut',      10],
+            ]);
+
+            var options_pie_2 = {
+                title: 'Bakery',
+                is3D: true,
+            };
+
+            var chart_pie_2 = new google.visualization.PieChart(document.getElementById('piechart_3d_2'));
+            chart_pie_2.draw(data_pie_1, options_pie_2);
+
+            // Bar Chart 1
+
+            var data_bar = google.visualization.arrayToDataTable([
+                ['Year', 'Sales', 'Expenses', 'Profit'],
+                ['2014', 1000, 400, 200],
+                ['2015', 1170, 460, 250],
+                ['2016', 660, 1120, 300],
+                ['2017', 1030, 540, 350]
+            ]);
+
+            var options_bar = {
+                chart: {
+                    title: 'Company Performance',
+                    // subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                    is3D: true,
+                },
+                bars: 'horizontal' // Required for Material Bar Charts.
+            };
+
+            var chart_bar = new google.charts.Bar(document.getElementById('barchart_3d_1'));
+            chart_bar.draw(data_bar, google.charts.Bar.convertOptions(options_bar));
+        }
+    </script>
+  </body>
+</html>
